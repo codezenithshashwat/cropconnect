@@ -15,7 +15,7 @@ FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 
 # --- THIS IS THE CORRECTED SECTION ---
-# Download the correct webapp-runner manually
+# Download the correct webapp-runner manually, following redirects (-L)
 RUN apt-get update && apt-get install -y curl && \
     curl -L -o webapp-runner.jar "https://search.maven.org/remotecontent?filepath=com/github/jsimone/webapp-runner-jakarta10/10.1.25.0/webapp-runner-jakarta10-10.1.25.0.jar" && \
     apt-get purge -y curl && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
