@@ -80,7 +80,6 @@
     </pluginManagement>
     <plugins>
 
-      <!-- ▼▼▼ THIS SECTION IS NOW CORRECTED ▼▼▼ -->
       <plugin>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
@@ -92,8 +91,8 @@
           <scan>10</scan>
         </configuration>
       </plugin>
-      <!-- ▲▲▲ END OF CORRECTION ▲▲▲ -->
 
+      <!-- Copy Jetty Runner for deployment -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -107,10 +106,10 @@
             <configuration>
               <artifactItems>
                 <artifactItem>
-                  <groupId>com.github.jsimone</groupId>
-                  <artifactId>webapp-runner-jakarta10</artifactId>
-                  <version>10.1.25.0</version>
-                  <destFileName>webapp-runner.jar</destFileName>
+                  <groupId>org.eclipse.jetty</groupId>
+                  <artifactId>jetty-runner</artifactId>
+                  <version>9.4.54.v20240208</version>
+                  <destFileName>jetty-runner.jar</destFileName>
                 </artifactItem>
               </artifactItems>
             </configuration>
