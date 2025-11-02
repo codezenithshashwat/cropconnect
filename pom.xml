@@ -108,7 +108,7 @@
               <artifactItems>
                 <artifactItem>
                   <groupId>com.heroku.sdk</groupId>
-                  <artifactId>webapp-runner-jakarta</artifactId>
+                  <artifactId>webapp-runner</artifactId>
                   <version>10.0.27.0</version>
                   <destFileName>webapp-runner.jar</destFileName>
                 </artifactItem>
