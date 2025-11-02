@@ -79,15 +79,20 @@
       </plugins>
     </pluginManagement>
     <plugins>
+
+      <!-- ▼▼▼ THIS SECTION IS NOW CORRECTED ▼▼▼ -->
       <plugin>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
-        <version>11.0.20</version> <configuration>
-        <webApp>
-          <contextPath>/</contextPath>
-        </webApp>
-        <scan>10</scan> </configuration>
+        <version>11.0.20</version>
+        <configuration>
+          <webApp>
+            <contextPath>/</contextPath>
+          </webApp>
+          <scan>10</scan>
+        </configuration>
       </plugin>
+      <!-- ▲▲▲ END OF CORRECTION ▲▲▲ -->
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
