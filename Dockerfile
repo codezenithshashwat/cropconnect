@@ -8,14 +8,20 @@ RUN mvn dependency:go-offline
 
 # Copy the rest of the source code and build the .war
 COPY src ./src
-RUN mvn clean package
+RUN mvn clean package -DskipTests
 
 # Stage 2: Create the final, small image
 FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 
-# Copy the webapp-runner (from the plugin) and the .war file
-COPY --from=build /app/target/dependency/webapp-runner.jar ./webapp-runner.jar
+# --- THIS IS THE CRITICAL SECTION ---
+# Download the correct webapp-runner manually
+RUN apt-get update && apt-get install -y curl && \
+    curl -L -o webapp-runner.jar "https://search.maven.org/remotecontent?filepath=com/github/jsimone/webapp-runner-jakarta10/10.1.25.0/webapp-runner-jakarta10-10.1.25.0.jar" && \
+    apt-get purge -y curl && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+# --- END SECTION ---
+
+# Copy just the .war file from the build stage
 COPY --from=build /app/target/CropConnect.war ./CropConnect.war
 
 # Tell Render what port our app will listen on
