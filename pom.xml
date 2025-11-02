@@ -109,7 +109,7 @@
                 <artifactItem>
                   <groupId>com.github.jsimone</groupId>
                   <artifactId>webapp-runner</artifactId>
-                  <version>9.0.91.0</version>
+                  <version>10.1.25.0</version>
                   <destFileName>webapp-runner.jar</destFileName>
                 </artifactItem>
               </artifactItems>
