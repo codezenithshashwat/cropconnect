@@ -14,7 +14,7 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 
-# --- THIS IS THE CRITICAL SECTION ---
+# --- THIS IS THE CORRECTED SECTION ---
 # Download the correct webapp-runner manually
 RUN apt-get update && apt-get install -y curl && \
     curl -L -o webapp-runner.jar "https://search.maven.org/remotecontent?filepath=com/github/jsimone/webapp-runner-jakarta10/10.1.25.0/webapp-runner-jakarta10-10.1.25.0.jar" && \
