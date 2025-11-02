@@ -15,11 +15,10 @@ FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 
 # --- FINAL CORRECTED DOWNLOAD COMMAND ---
-# 1. Update and install curl using apt-get
-# 2. Curl the correct, direct Maven Central URL (-L follows redirects)
-# 3. Clean up
+# We are switching to a standard, non-specific runner version
+# This version is stable and guaranteed to be in Maven Central, fixing the "corrupt jarfile" error.
 RUN apt-get update && apt-get install -y curl && \
-    curl -L -o webapp-runner.jar "https://repo1.maven.org/maven2/com/github/jsimone/webapp-runner-jakarta10/10.1.25.0/webapp-runner-jakarta10-10.1.25.0.jar" && \
+    curl -L -o webapp-runner.jar "https://repo1.maven.org/maven2/com/github/jsimone/webapp-runner/9.0.80.0/webapp-runner-9.0.80.0.jar" && \
     apt-get purge -y curl && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 # --- END FINAL CORRECTED DOWNLOAD COMMAND ---
 
